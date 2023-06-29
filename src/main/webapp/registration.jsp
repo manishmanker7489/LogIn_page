@@ -89,9 +89,21 @@
 		if(status == "success"){
 			swal("Congrats", "Account Created SuccessFully", "success");
 		}
+		else if(status == "invalid name"){
+			swal("Sorry", "Enter valid name","error");
+		}
+		else if(status == "invalid Email"){
+			swal("Sorry", "Enter valid Email","error");
+		}
+		else if(status == "invalid passward"){
+			swal("Sorry", "Enter valid passward","error");
+		}
+		else if(status == "invalid Mobile_no"){
+			swal("Sorry", "Enter valid (10 digit) Mobile no. ","error");
+		}
 	
 	</script>
-
+				
 
 
 </body>

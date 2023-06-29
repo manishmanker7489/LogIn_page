@@ -26,10 +26,33 @@ public class RegistrationServlet extends HttpServlet {
 		String uemail = request.getParameter("email");
 		String upwd = request.getParameter("pass");
 		String umobile = request.getParameter("contact");
-		
+        
 		Connection con = null;
-		
 		RequestDispatcher dispatcher = null;
+		
+		if(uname == null || uname=="") {
+			request.setAttribute("status", "invalid name");
+			dispatcher = request.getRequestDispatcher("registration.jsp");
+			dispatcher.forward(request, response);
+		}
+		if(uemail == null || uemail=="") {
+			request.setAttribute("status", "invalid Email");
+			dispatcher = request.getRequestDispatcher("registration.jsp");
+			dispatcher.forward(request, response);
+		}
+		if(upwd == null || upwd=="") {
+			request.setAttribute("status", "invalid passward");
+			dispatcher = request.getRequestDispatcher("registration.jsp");
+			dispatcher.forward(request, response);
+		}
+		if(umobile == null || umobile=="" || umobile.length()<9) {
+			request.setAttribute("status", "invalid Mobile_no");
+			dispatcher = request.getRequestDispatcher("registration.jsp");
+			dispatcher.forward(request, response);
+		}
+		
+		
+		
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -62,7 +85,7 @@ public class RegistrationServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
+	
 	}
 
 }

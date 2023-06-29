@@ -41,6 +41,18 @@ public class Login extends HttpServlet {
 			pst.setString(1, uemai);
 			pst.setString(2, upwd);
 			
+			if(uemai == null || uemai=="") {
+				request.setAttribute("status", "invalid Email");
+				dispatcher = request.getRequestDispatcher("login.jsp");
+				dispatcher.forward(request, response);
+			}
+			if(upwd == null || upwd=="") {
+				request.setAttribute("status", "invalid Password");
+				dispatcher = request.getRequestDispatcher("login.jsp");
+				dispatcher.forward(request, response);
+			}
+			
+			
 			ResultSet rs = pst.executeQuery();
 			if(rs.next()) {
 				session.setAttribute("name", rs.getString("uname"));

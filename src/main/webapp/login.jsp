@@ -44,7 +44,7 @@
 							<div class="form-group">
 								<label for="password"><i class="zmdi zmdi-lock"></i></label> <input
 									type="password" name="password" id="password"
-									placeholder="Password" />
+									placeholder="Password"  />
 							</div>
 							<div class="form-group">
 								<input type="checkbox" name="remember-me" id="remember-me"
@@ -86,6 +86,12 @@
 		var status = document.getElementById("status").value;
 		if(status == "failed"){
 			swal("Sorry", "Wrong Username or password", "error");
+		}
+		else if(status == "invalid Email"){
+			swal("Sorry", "Please Enter valid Email", "error");
+		}
+		else if(status == "invalid Password"){
+			swal("Sorry", "Please Enter valid Passward", "error");
 		}
 	
 	</script>
